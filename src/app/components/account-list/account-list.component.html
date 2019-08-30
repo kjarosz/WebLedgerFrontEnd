@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class = "title">Accounts</h1>
+    <div *ngFor = "let account of accounts" class  = "card">
+        <div class = "card-content">
+            <div class = "media">
+                <div class = "media-content">
+                    <h6 class = "title is-4">
+                        {{account.name}}
+                    </h6>
+                </div>
+            </div>
+            <div class = "content">
+                Amount: {{account.amount}}
+            </div>
+        </div>
+    </div>
+</div>

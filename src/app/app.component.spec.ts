@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'WebLedgerFrontEnd'`, () => {
+  it(`should have as title 'Web Ledger'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('WebLedgerFrontEnd');
+    expect(app.title).toEqual('Web Ledger');
   });
 
   it('should render title', () => {
