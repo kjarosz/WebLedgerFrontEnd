@@ -1,9 +1,14 @@
 export class Account {
-    id: number;
-    name: string;
-    type: string;
-    amount: Number;
-    limit: number;
+    public id: number;
+    public name: string;
+    public type: string;
+    public amount: Number;
+    public limit: number;
 
-    Account() { }
+    constructor() { 
+        this.name = "";
+        this.type = "";
+        this.amount = 0.0;
+        this.limit = 0.0;
+    }
 }

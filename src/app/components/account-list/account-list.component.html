@@ -1,19 +1,28 @@
 <div class="container">
-    <h1 class = "title">Accounts</h1>
+    <div class = "level">
+        <h1 class = "title">Accounts</h1>
+        <div class = "level-right">
+            <a routerLink = "../account/-1" class = "button is-primary">
+                + New
+            </a>
+        </div>
+    </div>
     <div *ngFor = "let account of accounts" class  = "card">
-        <div class = "card-content">
-            <div class = "media">
-                <div class = "media-content">
-                    <p class = "title is-4">
-                        {{account.name}}
-                    </p>
+        <a routerLink = "../account/{{account.id}}">
+            <div class = "card-content">
+                <div class = "media">
+                    <div class = "media-content">
+                        <p class = "title is-4">
+                            {{account.name}}
+                        </p>
+                    </div>
+                </div>
+                <div class = "content">
+                    <p> Type: {{account.type}} </p>
+                    <p> Amount: {{account.amount}} </p>
+                    <p> Limit: {{account.limit}} </p>
                 </div>
             </div>
-            <div class = "content">
-                <p> Type: {{account.type}} </p>
-                <p> Amount: {{account.amount}} </p>
-                <p> Limit: {{account.limit}} </p>
-            </div>
-        </div>
+        </a>
     </div>
 </div>

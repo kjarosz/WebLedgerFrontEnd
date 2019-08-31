@@ -1,0 +1,49 @@
+<div class="container">
+    <h1 class = "title">Account</h1>
+    <form>
+        <div class = "field">
+            <label>Name:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "text" 
+                       name = "name"
+                       placeholder = "Name" 
+                       [(ngModel)] = "account.name" />
+            </div>
+        </div>
+        <div class = "field">
+            <label>Type:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "text" 
+                       name = "type"
+                       placeholder = "Type" 
+                       [(ngModel)] = "account.type" />
+            </div>
+        </div>
+        <div class = "field">
+            <label>Amount:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "number" 
+                       name = "amount"
+                       placeholder = "0.0" 
+                       [(ngModel)] = "account.amount" 
+                       readonly />
+            </div>
+        </div>
+        <div class = "field">
+            <label>Limit:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "number" 
+                       name = "limit"
+                       placeholder = "0.0" 
+                       [(ngModel)] = "account.limit" />
+            </div>
+        </div>
+        <button class = "button is-primary" (click) = "save()">
+            Save
+        </button>
+    </form>
+</div>
