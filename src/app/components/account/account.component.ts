@@ -11,6 +11,7 @@ import { Account } from 'src/app/model/account';
 })
 export class AccountComponent implements OnInit {
 
+  accountTypes: string[];
   account: Account;
 
   constructor(
@@ -20,6 +21,17 @@ export class AccountComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadAccountTypes();
+    this.loadAccount();
+  }
+
+  private loadAccountTypes() {
+    this.accountService.getAccountTypes().subscribe((accountTypes) => {
+      this.accountTypes = accountTypes;
+    })
+  }
+
+  private loadAccount() {
     var accountIdInPath = this.activatedRoute.snapshot.paramMap.get("id");
     var accountId: number = parseInt(accountIdInPath);
     if (accountId >= 0) {
@@ -27,7 +39,8 @@ export class AccountComponent implements OnInit {
         .subscribe((account: Account) => {
           this.account = account;
         });
-    } else {
+    }
+    else {
       this.account = new Account();
     }
   }

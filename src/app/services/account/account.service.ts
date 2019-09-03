@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NGXLogger } from 'ngx-logger';
 import { Account } from '../../model/account';
-import { accessSync } from 'fs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,16 @@ export class AccountService {
     private logger: NGXLogger,
     private http: HttpClient
   ) { }
+
+  getAccountTypes(): Observable<string[]> {
+    var accountsListUrl = environment.base_url + "accounts/types";
+    this.logger.debug("Fetch account types from: {}", accountsListUrl);
+    var observable = this.http.get<string[]>(accountsListUrl)
+    observable.subscribe((accountTypes) => {
+      this.logger.debug("Account types fetched:", accountTypes);
+    });
+    return observable;
+  }
 
   getAccounts(): Observable<Account[]> {
     var accountsListUrl = environment.base_url + "accounts";

@@ -2,7 +2,7 @@
     <h1 class = "title">Account</h1>
     <form>
         <div class = "field">
-            <label>Name:</label>
+            <label class = "label">Name:</label>
             <div class = "control">
                 <input class = "input" 
                        type = "text" 
@@ -12,17 +12,17 @@
             </div>
         </div>
         <div class = "field">
-            <label>Type:</label>
-            <div class = "control">
-                <input class = "input" 
-                       type = "text" 
-                       name = "type"
-                       placeholder = "Type" 
-                       [(ngModel)] = "account.type" />
+            <label class = "label">Type:</label>
+            <div class = "select">
+                <select name = "type" [(ngModel)] = "account.type">
+                    <option *ngFor = "let accountType of accountTypes" value = {{accountType}}>
+                        {{accountType}}
+                    </option>
+                </select>
             </div>
         </div>
         <div class = "field">
-            <label>Amount:</label>
+            <label class = "label">Amount:</label>
             <div class = "control">
                 <input class = "input" 
                        type = "number" 
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class = "field">
-            <label>Limit:</label>
+            <label class = "label">Limit:</label>
             <div class = "control">
                 <input class = "input" 
                        type = "number" 
