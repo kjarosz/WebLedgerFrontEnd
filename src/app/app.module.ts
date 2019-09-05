@@ -8,18 +8,21 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { AppComponent } from './app.component';
 import { AccountListComponent } from './components/account-list/account-list.component';
 import { AccountComponent } from "./components/account/account.component";
+import { AllocationCenterListComponent } from './components/allocation-center-list/allocation-center-list.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "accounts", pathMatch: "full" },
+  { path: "", redirectTo: "allocationcenters", pathMatch: "full" },
   { path: "accounts", component: AccountListComponent },
-  { path: "account/:id", component: AccountComponent }
+  { path: "account/:id", component: AccountComponent },
+  { path: "allocationcenters", component: AllocationCenterListComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountListComponent,
-    AccountComponent
+    AccountComponent,
+    AllocationCenterListComponent
   ],
   imports: [
     BrowserModule,
