@@ -1,0 +1,13 @@
+<div class = "field">
+    <label class = "label">Name:</label>
+    <div class = "control">
+        <input 
+            class = "input"
+            type = "text"
+            name = "{{name}}"
+            [(ngModel)] = "ngModel" 
+            (onchange) = "this.propagateChange(ngModel)"
+            [disabled]="isDisabled"
+            />
+    </div>
+</div>

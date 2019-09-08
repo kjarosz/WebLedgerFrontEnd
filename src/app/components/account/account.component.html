@@ -1,16 +1,10 @@
 <div class="container">
     <h1 class = "title">Account</h1>
     <form>
-        <div class = "field">
-            <label class = "label">Name:</label>
-            <div class = "control">
-                <input class = "input" 
-                       type = "text" 
-                       name = "name"
-                       placeholder = "Name" 
-                       [(ngModel)] = "account.name" />
-            </div>
-        </div>
+        <app-text-field
+            name = "name"
+            [(ngModel)] = "account.name">
+        </app-text-field>
         <div class = "field">
             <label class = "label">Type:</label>
             <div class = "select">
