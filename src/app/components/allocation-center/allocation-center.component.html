@@ -41,7 +41,12 @@
                     readonly />
             </div>
         </div>
-        <div class = "field" *ngIf = "allocationCenter.paidFrom">
+        <button class = "button" 
+            *ngIf = "!allocationCenter.account"
+            (click) = "showAccountSelector()" >
+            Select account
+        </button>
+        <!-- <div class = "field" *ngIf = "allocationCenter.paidFrom">
             <label class = "label">Paid from:</label>
             <div class = "control">
                 <input class = "input"
@@ -50,6 +55,20 @@
                     [(ngModel)] = "allocationCenter.paidFrom.name" 
                     readonly />
             </div>
-        </div>
+        </div> -->
     </form>
+
+    <div *ngIf = "selectorShowing">
+        <ul>
+            <li *ngFor = "let account of accounts">
+                <a (click) = "selectAccount(account)">
+                    {{account.name}}
+                </a>
+            </li>
+        </ul>
+        <button class = "button"
+            (click) = "hideAccountSelector()">
+            Close
+        </button>
+    </div>
 </div>
