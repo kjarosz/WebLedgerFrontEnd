@@ -14,8 +14,9 @@ import { AllocationCenterComponent } from './components/allocation-center/alloca
 const routes: Routes = [
   { path: "", redirectTo: "allocationcenters", pathMatch: "full" },
   { path: "accounts", component: AccountListComponent },
-  { path: "account/:id", component: AccountComponent },
-  { path: "allocationcenters", component: AllocationCenterListComponent }
+  { path: "accounts/:id", component: AccountComponent },
+  { path: "allocationcenters", component: AllocationCenterListComponent },
+  { path: "allocationcenters/:id", component: AllocationCenterComponent }
 ]
 
 @NgModule({

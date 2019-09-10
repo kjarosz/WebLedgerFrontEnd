@@ -2,13 +2,13 @@
     <div class = "level">
         <h1 class = "title">Accounts</h1>
         <div class = "level-right">
-            <a routerLink = "../account/-1" class = "button is-primary">
+            <a routerLink = "account/-1" class = "button is-primary">
                 + New
             </a>
         </div>
     </div>
     <div *ngFor = "let account of accounts" class  = "card">
-        <a routerLink = "../account/{{account.id}}">
+        <a routerLink = "account/{{account.id}}">
             <div class = "card-content">
                 <div class = "media">
                     <div class = "media-content">

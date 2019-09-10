@@ -1,0 +1,55 @@
+<div class = "container">
+    <h1 class = "title">Allocation Center</h1>
+    <form>
+        <div class = "field">
+            <label class = "label">Name:</label>
+            <div class = "control">
+                <input class = "input"
+                    type = "text"
+                    name = "name"
+                    placeholder = "Name"
+                    [(ngModel)] = "allocationCenter.name" />
+            </div>
+        </div>
+        <div class = "field">
+            <label class = "label">Amount:</label>
+            <div class = "control">
+                <input class = "input"
+                    type = "text"
+                    name = "amount"
+                    [(ngModel)] = "allocationCenter.amount"
+                    readonly />
+            </div>
+        </div>
+        <div class = "field">
+            <label class = "label">Goal:</label>
+            <div class = "control">
+                <input class = "input"
+                    type = "text"
+                    name = "goal"
+                    placeholder = "0.0"
+                    [(ngModel)] = "allocationCenter.goal" />
+            </div>
+        </div>
+        <div class = "field" *ngIf = "allocationCenter.account">
+            <label class = "label">Account:</label>
+            <div class = "control">
+                <input class = "input"
+                    type = "text"
+                    name = "account"
+                    [(ngModel)] = "allocationCenter.account.name" 
+                    readonly />
+            </div>
+        </div>
+        <div class = "field" *ngIf = "allocationCenter.paidFrom">
+            <label class = "label">Paid from:</label>
+            <div class = "control">
+                <input class = "input"
+                    type = "text"
+                    name = "paidfrom"
+                    [(ngModel)] = "allocationCenter.paidFrom.name" 
+                    readonly />
+            </div>
+        </div>
+    </form>
+</div>

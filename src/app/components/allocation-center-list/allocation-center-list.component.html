@@ -1,20 +1,27 @@
 <div class = "container">
     <div class = "level">
         <h1 class = "title">Allocation Centers</h1>
+        <div class = "level-right">
+            <a routerLink = "allocationcenters/-1" class = "button is-primary">
+                + New
+            </a>
+        </div>
     </div>
     <div *ngFor = "let allocationCenter of allocationCenters" class = "card">
-        <div class = "card-content">
-            <div class = "media">
-                <div class = "media-content">
-                    <p class = "title is-4">
-                        {{allocationCenter.name}}
-                    </p>
+        <a routerLink = "allocationcenters/{{allocationCenter.id}}" >
+            <div class = "card-content">
+                <div class = "media">
+                    <div class = "media-content">
+                        <p class = "title is-4">
+                            {{allocationCenter.name}}
+                        </p>
+                    </div>
+                </div>
+                <div class = "content">
+                    <p>Amount: {{allocationCenter.amount}}</p>
+                    <p>Goal: {{allocationCenter.goal}}</p>
                 </div>
             </div>
-            <div class = "content">
-                <p>Amount: {{allocationCenter.amount}}</p>
-                <p>Goal: {{allocationCenter.goal}}</p>
-            </div>
-        </div>
+        </a>
     </div>
 </div>
