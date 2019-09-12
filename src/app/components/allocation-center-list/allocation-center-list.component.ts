@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AllocationCenter } from '../../model/allocation-center';
+import { AllocationCenterService } from 'src/app/services/allocation-center/allocation-center.service';
+import { all } from 'q';
 
 @Component({
   selector: 'app-allocation-center-list',
@@ -10,12 +12,15 @@ export class AllocationCenterListComponent implements OnInit {
 
   allocationCenters: AllocationCenter[];
 
-  constructor() { }
+  constructor(
+    private allocationCenterService: AllocationCenterService
+  ) { }
 
   ngOnInit() {
-    let allocationCenter: AllocationCenter = new AllocationCenter();
-    allocationCenter.name = "Test name";
-    this.allocationCenters = [ allocationCenter ];
+    this.allocationCenterService.getAllocationCenters()
+      .subscribe((allocationCenters: AllocationCenter[]) => {
+        this.allocationCenters = allocationCenters;
+      });
   }
 
 }

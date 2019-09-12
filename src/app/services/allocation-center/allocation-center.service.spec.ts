@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AllocationCenterServiceService } from './allocation-center-service.service';
+import { AllocationCenterServiceService } from './allocation-center.service';
 
 describe('AllocationCenterServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

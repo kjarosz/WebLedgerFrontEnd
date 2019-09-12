@@ -15,6 +15,12 @@ export class AllocationCenterService {
     private http: HttpClient
   ) { }
 
+  getAllocationCenters(): Observable<AllocationCenter[]> {
+    var listUrl = environment.base_url + "allocationcenters";
+    var observable = this.http.get<AllocationCenter[]>(listUrl);
+    return observable;
+  }
+
   saveAllocationCenter(allocationCenter): Observable<AllocationCenter> {
     var allocationCenterSaveUrl = environment.base_url + "allocationcenters/save";
     var observable = this.http.post<AllocationCenter>(allocationCenterSaveUrl, allocationCenter);
