@@ -48,8 +48,7 @@ export class AccountComponent implements OnInit {
   save() {
     this.accountService.saveAccount(this.account)
       .subscribe((account: Account) => {
-        var listUrl = environment.base_url + "accounts";
-        this.router.navigateByUrl(listUrl);
+        this.router.navigateByUrl("/accounts");
       });
   }
 
