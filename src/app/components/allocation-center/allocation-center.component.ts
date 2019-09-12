@@ -30,8 +30,7 @@ export class AllocationCenterComponent implements OnInit {
     var allocationCenterTo = this.createAllocationCenterTo();
     this.allocationCenterService.saveAllocationCenter(allocationCenterTo)
       .subscribe((allocationCenter: AllocationCenter) => {
-        var listUrl = environment.base_url + "allocationcenters";
-        this.router.navigateByUrl(listUrl);
+        this.router.navigateByUrl("/allocationcenters");
       });
   }
 
