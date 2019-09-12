@@ -11,6 +11,7 @@ import { AccountComponent } from "./components/account/account.component";
 import { AllocationCenterListComponent } from './components/allocation-center-list/allocation-center-list.component';
 import { AllocationCenterComponent } from './components/allocation-center/allocation-center.component';
 import { TextFieldComponent } from './components/text-field/text-field.component';
+import { AccountReferenceComponent } from './components/account-reference/account-reference.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "allocationcenters", pathMatch: "full" },
@@ -27,7 +28,8 @@ const routes: Routes = [
     AccountComponent,
     AllocationCenterListComponent,
     AllocationCenterComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    AccountReferenceComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AllocationCenter } from '../../model/allocation-center';
 import { Account } from '../../model/account';
 import { AccountService } from 'src/app/services/account/account.service';
+import { AllocationCenterService } from 'src/app/services/allocation-center/allocation-center.service';
+import { environment } from 'src/environments/environment';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-allocation-center',
@@ -13,33 +16,32 @@ export class AllocationCenterComponent implements OnInit {
   allocationCenter: AllocationCenter;
   accounts: Account[];
 
-  selectorShowing: boolean;
-
   constructor(
-    private accountService: AccountService
+    private router: Router,
+    private accountService: AccountService,
+    private allocationCenterService: AllocationCenterService
   ) { }
 
   ngOnInit() {
     this.allocationCenter = new AllocationCenter();
   }
 
-  showAccountSelector() {
-    this.loadAccountList();
-    this.selectorShowing = true;
+  saveAllocationCenter() {
+    var allocationCenterTo = this.createAllocationCenterTo();
+    this.allocationCenterService.saveAllocationCenter(allocationCenterTo)
+      .subscribe((allocationCenter: AllocationCenter) => {
+        var listUrl = environment.base_url + "allocationcenters";
+        this.router.navigateByUrl(listUrl);
+      });
   }
 
-  private loadAccountList() {
-    this.accountService.getAccounts().subscribe((accounts: Account[]) => {
-      this.accounts = accounts;
-    })
+  private createAllocationCenterTo(): object {
+    return {
+      id: this.allocationCenter.id,
+      name: this.allocationCenter.name,
+      goal: this.allocationCenter.goal,
+      accountId: this.allocationCenter.account.id
+    };
   }
 
-  hideAccountSelector() {
-    this.selectorShowing = false;
-  }
-
-  selectAccount(account: Account) {
-    this.allocationCenter.account = account;
-    this.hideAccountSelector();
-  }
 }

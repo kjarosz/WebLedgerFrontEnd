@@ -17,44 +17,15 @@
             name = "goal"
             [(value)] = "allocationCenter.goal">
         </text-field>
-        <div class = "field" *ngIf = "allocationCenter.account">
-            <label class = "label">Account:</label>
-            <div class = "control">
-                <input class = "input"
-                    type = "text"
-                    name = "account"
-                    [(ngModel)] = "allocationCenter.account.name" 
-                    readonly />
-            </div>
-        </div>
-        <button class = "button" 
-            *ngIf = "!allocationCenter.account"
-            (click) = "showAccountSelector()" >
-            Select account
-        </button>
-        <!-- <div class = "field" *ngIf = "allocationCenter.paidFrom">
-            <label class = "label">Paid from:</label>
-            <div class = "control">
-                <input class = "input"
-                    type = "text"
-                    name = "paidfrom"
-                    [(ngModel)] = "allocationCenter.paidFrom.name" 
-                    readonly />
-            </div>
-        </div> -->
+        <account-reference
+            label = "Account:"
+            [(account)] = "allocationCenter.account">
+        </account-reference>
+        <account-reference
+            label = "Paid from:"
+            [(account)] = "allocationCenter.paidFrom">
+        </account-reference>
+        <button class = "button" (click) = "saveAllocationCenter()">Save</button>
+        <a href = ".." class = "button">Cancel</a>
     </form>
-
-    <div *ngIf = "selectorShowing">
-        <ul>
-            <li *ngFor = "let account of accounts">
-                <a (click) = "selectAccount(account)">
-                    {{account.name}}
-                </a>
-            </li>
-        </ul>
-        <button class = "button"
-            (click) = "hideAccountSelector()">
-            Close
-        </button>
-    </div>
 </div>
