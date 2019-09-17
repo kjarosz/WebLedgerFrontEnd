@@ -18,12 +18,26 @@ export class AllocationCenterComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private accountService: AccountService,
     private allocationCenterService: AllocationCenterService
   ) { }
 
   ngOnInit() {
-    this.allocationCenter = new AllocationCenter();
+    this.loadAccount();
+  }
+
+  private loadAccount() {
+    var idInPath = this.activatedRoute.snapshot.paramMap.get("id");
+    var id: number = parseInt(idInPath);
+    if (id >= 0) {
+      this.allocationCenterService.getAllocationCenter(id)
+        .subscribe((allocationCenter: AllocationCenter) => {
+          this.allocationCenter = allocationCenter;
+        });
+    } else {
+      this.allocationCenter = new AllocationCenter();
+    }
   }
 
   saveAllocationCenter() {
