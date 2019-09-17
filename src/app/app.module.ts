@@ -15,6 +15,7 @@ import { AccountReferenceComponent } from './components/account-reference/accoun
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { AllocationCenterReferenceComponent } from './components/allocation-center-reference/allocation-center-reference.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "allocationcenters", pathMatch: "full" },
@@ -37,7 +38,8 @@ const routes: Routes = [
     AccountReferenceComponent,
     NavbarComponent,
     TransactionListComponent,
-    TransactionComponent
+    TransactionComponent,
+    AllocationCenterReferenceComponent
   ],
   imports: [
     BrowserModule,

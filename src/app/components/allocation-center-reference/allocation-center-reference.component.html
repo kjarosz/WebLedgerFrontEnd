@@ -1,0 +1,42 @@
+<div class = "field">
+    <label class = "label">
+        {{label}}
+    </label>
+    <div class = "control" *ngIf = "allocationCenter">
+        <input name = "{{name}}"
+            class = "input"
+            type = "text"
+            value = "{{allocationCenter.name}}" 
+            readonly />
+    </div>
+    <div class = "control" *ngIf = "!allocationCenter">
+        <button 
+            class = "button" 
+            (click) = "showAllocationCenterSelectDialog()">
+            Search for allocation center
+        </button>
+    </div>
+    <div class = "modal" [ngClass] = "{ 'is-active': selectingAllocationCenter }">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Pick an account</p>
+                <button class="delete" aria-label="close" (click) = "closeSelector()"></button>
+            </header>
+            <section class="modal-card-body">
+                <ul>
+                    <li *ngFor = "let account of accounts">
+                        <a class = "button" (click) = "selectAccount(account)">
+                            {{account.name}}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <footer class="modal-card-foot">
+                <button class = "button" (click) = "closeSelector()">
+                    Cancel
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>

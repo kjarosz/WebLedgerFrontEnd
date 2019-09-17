@@ -21,6 +21,14 @@
                 </select>
             </div>
         </div>
+        <allocation-center-reference
+            label = "Source from:"
+            [(allocationCenter)] = "transaction.sourceAllocationCenter">
+        </allocation-center-reference>
+        <allocation-center-reference
+            label = "Destination from:"
+            [(allocationCenter)] = "transaction.destinationAllocationCenter">
+        </allocation-center-reference>
         <text-field
             label = "Amount:"
             name = "amount"
