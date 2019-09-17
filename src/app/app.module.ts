@@ -13,13 +13,17 @@ import { AllocationCenterComponent } from './components/allocation-center/alloca
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { AccountReferenceComponent } from './components/account-reference/account-reference.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "allocationcenters", pathMatch: "full" },
   { path: "accounts", component: AccountListComponent },
   { path: "accounts/:id", component: AccountComponent },
   { path: "allocationcenters", component: AllocationCenterListComponent },
-  { path: "allocationcenters/:id", component: AllocationCenterComponent }
+  { path: "allocationcenters/:id", component: AllocationCenterComponent },
+  { path: "transactions", component: TransactionListComponent },
+  { path: "transactions/:id", component: TransactionComponent }
 ]
 
 @NgModule({
@@ -31,7 +35,9 @@ const routes: Routes = [
     AllocationCenterComponent,
     TextFieldComponent,
     AccountReferenceComponent,
-    NavbarComponent
+    NavbarComponent,
+    TransactionListComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

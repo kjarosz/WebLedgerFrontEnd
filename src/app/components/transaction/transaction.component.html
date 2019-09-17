@@ -1,0 +1,41 @@
+<div class = "container">
+    <h1 class = "title">Transaction</h1>
+    <form>
+        <text-field
+            label = "Created on:"
+            name = "dateCreated"
+            type = "date"
+            [(value)] = "transaction.dateCreated">
+        </text-field>
+        <div class = "field">
+            <label class = "label">Type:</label>
+            <div class = "select">
+                <select 
+                    name = "type" 
+                    [(ngModel)] = "transaction.transactionType">
+                    <option 
+                        *ngFor = "let transactionType of transactionTypes"
+                        value = "{{transactionType}}" >
+                        {{transactionType}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <text-field
+            label = "Amount:"
+            name = "amount"
+            type = "number"
+            [(value)] = "transaction.amount">
+        </text-field>
+        <text-field
+            label = "Date bank processed:"
+            name = "dateBankProcessed"
+            type = "date"
+            [(value)] = "transaction.dateBankProcessed">
+        </text-field>
+        <account-reference 
+            label = "Paid from:"
+            [(account)] = "transaction.creditAccount">
+        </account-reference>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div class = "container">
+    <div class = "level">
+        <h1 class = "title">Transactions</h1>
+        <div class = "level-right">
+            <a routerLink = "-1" class = "button is-primary">
+                + New
+            </a>
+        </div>
+    </div>
+    <div class = "panel">
+        <table>
+            <tr *ngFor = "let transaction of transactions">
+                <td>{{transaction.id}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

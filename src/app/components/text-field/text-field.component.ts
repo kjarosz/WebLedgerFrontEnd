@@ -9,6 +9,7 @@ export class TextFieldComponent implements OnInit {
 
   @Input() public label: string;
   @Input() public name: string;
+  @Input() public type: string = "text";
   @Input() public readonly: boolean;
 
   public textValue: any;

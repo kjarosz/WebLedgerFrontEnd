@@ -4,9 +4,8 @@
     </label>
     <div class = "control">
         <input class = "input"
-            type = "text"
-            name = "{{name}}"
-            placeholder = "Name"
+            [type] = "type"
+            [name] = "name"
             [value] = "textValue"
             (input) = "changeValue($event.target.value)"
             [readOnly] = "readonly" />
