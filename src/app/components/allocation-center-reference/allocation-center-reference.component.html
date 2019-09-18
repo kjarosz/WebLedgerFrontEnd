@@ -20,14 +20,14 @@
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">Pick an account</p>
+                <p class="modal-card-title">Pick an allocation center</p>
                 <button class="delete" aria-label="close" (click) = "closeSelector()"></button>
             </header>
             <section class="modal-card-body">
                 <ul>
-                    <li *ngFor = "let account of accounts">
-                        <a class = "button" (click) = "selectAccount(account)">
-                            {{account.name}}
+                    <li *ngFor = "let allocationCenter of allocationCenters">
+                        <a class = "button" (click) = "selectAllocationCenter(allocationCenter)">
+                            {{allocationCenter.name}}
                         </a>
                     </li>
                 </ul>
