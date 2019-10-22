@@ -25,5 +25,4 @@ export class TransactionListComponent implements OnInit {
         this.transactions = transactions;
       });
   }
-
 }

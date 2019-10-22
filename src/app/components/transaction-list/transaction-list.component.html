@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class = "panel">
-        <table class = "table" style = "width: 100%">
+        <table class = "table is-hoverable" style = "width: 100%">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -20,7 +20,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let transaction of transactions">
+                <tr *ngFor = "let transaction of transactions" 
+                    [routerLink] = "[transaction.id]">
                     <td>{{transaction.id}}</td>
                     <td>{{transaction.dateCreated}}</td>
                     <td>{{transaction.transactionType}}</td>
