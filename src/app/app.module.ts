@@ -18,7 +18,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { AllocationCenterReferenceComponent } from './components/allocation-center-reference/allocation-center-reference.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "allocationcenters", pathMatch: "full" },
+  { path: "", redirectTo: "transactions", pathMatch: "full" },
   { path: "accounts", component: AccountListComponent },
   { path: "accounts/:id", component: AccountComponent },
   { path: "allocationcenters", component: AllocationCenterListComponent },

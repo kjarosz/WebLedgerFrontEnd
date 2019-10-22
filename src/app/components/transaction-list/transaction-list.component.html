@@ -8,10 +8,27 @@
         </div>
     </div>
     <div class = "panel">
-        <table>
-            <tr *ngFor = "let transaction of transactions">
-                <td>{{transaction.id}}</td>
-            </tr>
+        <table class = "table" style = "width: 100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date Created</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let transaction of transactions">
+                    <td>{{transaction.id}}</td>
+                    <td>{{transaction.dateCreated}}</td>
+                    <td>{{transaction.transactionType}}</td>
+                    <td>{{transaction.sourceAllocationCenter?.name}}</td>
+                    <td>{{transaction.destinationAllocationCenter?.name}}</td>
+                    <td>{{transaction.amount}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
