@@ -20,6 +20,7 @@ export class TransactionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.transaction = new Transaction();
     this.loadTransactionTypes();
     this.loadTransaction();
   }

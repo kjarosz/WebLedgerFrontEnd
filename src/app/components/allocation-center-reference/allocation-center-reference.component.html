@@ -2,12 +2,21 @@
     <label class = "label">
         {{label}}
     </label>
-    <div class = "control" *ngIf = "allocationCenter">
-        <input name = "{{name}}"
-            class = "input"
-            type = "text"
-            value = "{{allocationCenter.name}}" 
-            readonly />
+    <div class = "field has-addons" *ngIf = "allocationCenter">
+        <div class = "control">
+            <input name = "{{name}}"
+                class = "input"
+                type = "text"
+                value = "{{allocationCenter.name}}" 
+                readonly />
+        </div>
+        <div class = "control">
+            <button 
+                class = "button is-danger"
+                (click) = "removeAllocationCenter()">
+                Remove
+            </button>
+        </div>
     </div>
     <div class = "control" *ngIf = "!allocationCenter">
         <button 

@@ -36,6 +36,10 @@ export class AllocationCenterReferenceComponent implements OnInit {
   public allocationCenters: AllocationCenter[];
   public selectingAllocationCenter: boolean;
 
+  removeAllocationCenter() {
+    this.allocationCenter = null;
+  }
+
   showAllocationCenterSelectDialog() {
     this.allocationCenterSerice.getAllocationCenters()
       .subscribe((allocationCenters: AllocationCenter[]) => {
