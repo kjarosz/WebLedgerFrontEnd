@@ -24,10 +24,10 @@ export class AllocationCenterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadAccount();
+    this.loadAllocationCenter();
   }
 
-  private loadAccount() {
+  private loadAllocationCenter() {
     var idInPath = this.activatedRoute.snapshot.paramMap.get("id");
     var id: number = parseInt(idInPath);
     if (id >= 0) {

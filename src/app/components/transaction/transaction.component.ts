@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/model/transaction';
 import { TransactionService } from 'src/app/services/transaction.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-transaction',
@@ -15,12 +15,13 @@ export class TransactionComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private transactionService: TransactionService
+    private activatedRoute: ActivatedRoute,
+    private transactionService: TransactionService,
   ) { }
 
   ngOnInit() {
     this.loadTransactionTypes();
-    this.transaction = new Transaction();
+    this.loadTransaction();
   }
 
   private loadTransactionTypes() {
@@ -28,6 +29,19 @@ export class TransactionComponent implements OnInit {
       .subscribe((transactionTypes: string[]) => {
         this.transactionTypes = transactionTypes;
       });
+  }
+
+  private loadTransaction() {
+    var idInPath = this.activatedRoute.snapshot.paramMap.get("id");
+    var id: number = parseInt(idInPath);
+    if (id >= 0) {
+      this.transactionService.getTransaction(id)
+        .subscribe((transaction: Transaction) => {
+          this.transaction = transaction;
+        });
+    } else {
+      this.transaction = new Transaction();
+    }
   }
 
   save() {

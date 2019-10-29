@@ -23,6 +23,11 @@ export class TransactionService {
     return this.http.get<Transaction[]>(listUrl);
   }
 
+  getTransaction(id: number): Observable<Transaction> {
+    var transactionUrl = environment.base_url + "transactions/" + id;
+    return this.http.get<Transaction>(transactionUrl);
+  }
+
   saveTransaction(transaction: object): Observable<Transaction> {
     var saveUrl = environment.base_url + "transactions/save";
     return this.http.post<Transaction>(saveUrl, transaction);
