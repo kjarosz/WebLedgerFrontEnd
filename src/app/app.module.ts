@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { AccountListComponent } from './components/account-list/account-list.component';
@@ -50,7 +51,8 @@ const routes: Routes = [
       serverLoggingUrl: '/api/logs', 
       level: NgxLoggerLevel.DEBUG, 
       serverLogLevel: NgxLoggerLevel.ERROR
-    })
+    }),
+    AngularFontAwesomeModule
   ],
   exports: [
     RouterModule

@@ -7,21 +7,21 @@
             </a>
         </div>
     </div>
-    <div *ngFor = "let allocationCenter of allocationCenters" class = "card">
-        <a routerLink = "{{allocationCenter.id}}" >
-            <div class = "card-content">
-                <div class = "media">
-                    <div class = "media-content">
-                        <p class = "title is-4">
-                            {{allocationCenter.name}}
-                        </p>
-                    </div>
-                </div>
-                <div class = "content">
-                    <p>Amount: {{allocationCenter.amount}}</p>
-                    <p>Goal: {{allocationCenter.goal}}</p>
-                </div>
-            </div>
-        </a>
-    </div>
+    <table class = "table is-hoverable" style = "width: 100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Goal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let allocationCenter of allocationCenters"
+                [routerLink] = "[allocationCenter.id]">
+                <td>{{allocationCenter.name}}</td>
+                <td>{{allocationCenter.amount}}</td>
+                <td>{{allocationCenter.goal}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
