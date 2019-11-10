@@ -53,6 +53,18 @@ export class TransactionComponent implements OnInit {
       });
   }
 
+  isSpendingType(): boolean {
+    return this.transaction.transactionType == "Spend"
+        || this.transaction.transactionType == "Credit"
+        || this.transaction.transactionType == "Transfer";
+  }
+
+  isAddingType(): boolean {
+    return this.transaction.transactionType == "Add"
+        || this.transaction.transactionType == "Pay"
+        || this.transaction.transactionType == "Transfer";
+  }
+
   private createTransactionTo(): object {
     return {
       id: this.transaction.id,

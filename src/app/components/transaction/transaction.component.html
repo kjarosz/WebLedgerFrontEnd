@@ -22,10 +22,12 @@
             </div>
         </div>
         <allocation-center-reference
+            *ngIf = "isSpendingType()"
             label = "Source from:"
             [(allocationCenter)] = "transaction.sourceAllocationCenter">
         </allocation-center-reference>
         <allocation-center-reference
+            *ngIf = "isAddingType()"
             label = "Destination from:"
             [(allocationCenter)] = "transaction.destinationAllocationCenter">
         </allocation-center-reference>
