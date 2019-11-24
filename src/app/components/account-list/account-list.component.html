@@ -7,22 +7,20 @@
             </a>
         </div>
     </div>
-    <div *ngFor = "let account of accounts" class  = "card">
-        <a routerLink = "{{account.id}}">
-            <div class = "card-content">
-                <div class = "media">
-                    <div class = "media-content">
-                        <p class = "title is-4">
-                            {{account.name}}
-                        </p>
-                    </div>
-                </div>
-                <div class = "content">
-                    <p> Type: {{account.type}} </p>
-                    <p> Amount: {{account.amount}} </p>
-                    <p> Limit: {{account.limit}} </p>
-                </div>
-            </div>
-        </a>
-    </div>
+    <table class = "table is-hoverable" style = "width: 100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let account of accounts">
+                <td>{{account.name}}</td>
+                <td>{{account.amount}}</td>
+                <td>{{account.limit}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
