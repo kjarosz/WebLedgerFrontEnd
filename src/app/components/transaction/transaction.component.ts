@@ -27,6 +27,7 @@ export class TransactionComponent implements OnInit {
 
   private loadTransactionTypes() {
     this.transactionService.getTransactionTypes()
+
       .subscribe((transactionTypes: string[]) => {
         this.transactionTypes = transactionTypes;
       });
@@ -49,6 +50,13 @@ export class TransactionComponent implements OnInit {
     var transactionTo = this.createTransactionTo();
     this.transactionService.saveTransaction(transactionTo)
       .subscribe((transaction: Transaction) => {
+        this.router.navigateByUrl("/transactions");
+      });
+  }
+
+  delete() {
+    this.transactionService.deleteTransaction(this.transaction.id)
+      .subscribe((message: String) => {
         this.router.navigateByUrl("/transactions");
       });
   }

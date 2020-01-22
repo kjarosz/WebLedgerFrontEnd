@@ -32,4 +32,9 @@ export class TransactionService {
     var saveUrl = environment.base_url + "transactions/save";
     return this.http.post<Transaction>(saveUrl, transaction);
   }
+
+  deleteTransaction(id: number): Observable<String> {
+    var deleteUrl = environment.base_url + "transactions/" + id;
+    return this.http.delete<String>(deleteUrl);
+  }
 }
