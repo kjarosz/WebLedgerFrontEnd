@@ -57,4 +57,10 @@ export class AllocationCenterComponent implements OnInit {
     };
   }
 
+  delete() {
+    this.allocationCenterService.deleteAllocationCenter(this.allocationCenter.id)
+      .subscribe((message: String) => {
+        this.router.navigateByUrl("/allocationcenters");
+      });
+  }
 }

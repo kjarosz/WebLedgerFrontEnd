@@ -29,4 +29,9 @@ export class AllocationCenterService {
     var allocationCenterSaveUrl = environment.base_url + "allocationcenters/save";
     return this.http.post<AllocationCenter>(allocationCenterSaveUrl, allocationCenter);
   }
+
+  deleteAllocationCenter(id: number): Observable<String> {
+    var deleteUrl = environment.base_url + "allocationcenters/" + id;
+    return this.http.delete<String>(deleteUrl);
+  }
 }
