@@ -1,0 +1,52 @@
+<div class="container">
+    <h1 class = "title">Account</h1>
+    <form>
+        <div class = "field">
+            <label class = "label">Name:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "text" 
+                       name = "name"
+                       placeholder = "Name" 
+                       [(ngModel)] = "account.name" />
+            </div>
+        </div>
+        <div class = "field">
+            <label class = "label">Type:</label>
+            <div class = "select">
+                <select name = "type" [(ngModel)] = "account.type">
+                    <option *ngFor = "let accountType of accountTypes" value = {{accountType}}>
+                        {{accountType}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class = "field">
+            <label class = "label">Amount:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "number" 
+                       name = "amount"
+                       placeholder = "0.0" 
+                       [(ngModel)] = "account.amount" 
+                       readonly />
+            </div>
+        </div>
+        <div class = "field">
+            <label class = "label">Limit:</label>
+            <div class = "control">
+                <input class = "input" 
+                       type = "number" 
+                       name = "limit"
+                       placeholder = "0.0" 
+                       [(ngModel)] = "account.limit" />
+            </div>
+        </div>
+        <button class = "button is-primary" (click) = "save()">
+            Save
+        </button>
+        <a class = "button is-default" routerLink = "../../accounts">
+            Back
+        </a>
+    </form>
+</div>

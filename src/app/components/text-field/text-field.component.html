@@ -1,0 +1,13 @@
+<div class = "field">
+    <label class = "label">
+        {{label}}
+    </label>
+    <div class = "control">
+        <input class = "input"
+            [type] = "type"
+            [name] = "name"
+            [value] = "textValue"
+            (input) = "changeValue($event.target.value)"
+            [readOnly] = "readonly" />
+    </div>
+</div>

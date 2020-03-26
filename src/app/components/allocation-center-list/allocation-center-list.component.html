@@ -1,0 +1,29 @@
+<div class = "container">
+    <div class = "level">
+        <h1 class = "title">Allocation Centers</h1>
+        <div class = "level-right">
+            <a routerLink = "-1" class = "button is-primary">
+                + New
+            </a>
+        </div>
+    </div>
+    <table class = "table is-hoverable" style = "width: 100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Goal</th>
+                <th>Account</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let allocationCenter of allocationCenters"
+                [routerLink] = "[allocationCenter.id]">
+                <td>{{allocationCenter.name}}</td>
+                <td>{{allocationCenter.amount}}</td>
+                <td>{{allocationCenter.goal}}</td>
+                <td>{{allocationCenter.account.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

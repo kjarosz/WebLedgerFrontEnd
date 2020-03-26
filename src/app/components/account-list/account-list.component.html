@@ -1,0 +1,26 @@
+<div class="container">
+    <div class = "level">
+        <h1 class = "title">Accounts</h1>
+        <div class = "level-right">
+            <a routerLink = "-1" class = "button is-primary">
+                + New
+            </a>
+        </div>
+    </div>
+    <table class = "table is-hoverable" style = "width: 100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let account of accounts">
+                <td>{{account.name}}</td>
+                <td>{{account.amount}}</td>
+                <td>{{account.limit}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

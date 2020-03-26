@@ -1,0 +1,66 @@
+<div class = "container">
+    <div class = "level">
+        <h1 class = "title">Transaction</h1>
+        <div class = "level-right">
+            <div class = "level-item">
+                <button class = "button is-danger" (click) = "delete()">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <form>
+        <text-field
+            label = "Created on:"
+            name = "dateCreated"
+            type = "date"
+            [(value)] = "transaction.dateCreated">
+        </text-field>
+        <div class = "field">
+            <label class = "label">Type:</label>
+            <div class = "select">
+                <select 
+                    name = "type" 
+                    [(ngModel)] = "transaction.transactionType">
+                    <option 
+                        *ngFor = "let transactionType of transactionTypes"
+                        value = "{{transactionType}}" >
+                        {{transactionType}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <allocation-center-reference
+            *ngIf = "isSpendingType()"
+            label = "Source from:"
+            [(allocationCenter)] = "transaction.sourceAllocationCenter">
+        </allocation-center-reference>
+        <allocation-center-reference
+            *ngIf = "isAddingType()"
+            label = "Destination from:"
+            [(allocationCenter)] = "transaction.destinationAllocationCenter">
+        </allocation-center-reference>
+        <text-field
+            label = "Amount:"
+            name = "amount"
+            type = "number"
+            [(value)] = "transaction.amount">
+        </text-field>
+        <text-field
+            label = "Date bank processed:"
+            name = "dateBankProcessed"
+            type = "date"
+            [(value)] = "transaction.dateBankProcessed">
+        </text-field>
+        <account-reference 
+            label = "Paid from:"
+            [(account)] = "transaction.creditAccount">
+        </account-reference>
+        <button class = "button is-primary" (click) = "save()">
+            Save
+        </button>
+        <a class = "button is-default" routerLink = "..">
+            Back
+        </a>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<div class = "container">
+    <div class = "level">
+        <h1 class = "title">Transactions</h1>
+        <div class = "level-right">
+            <a routerLink = "-1" class = "button is-primary">
+                + New
+            </a>
+        </div>
+    </div>
+    <div class = "panel">
+        <table class = "table is-hoverable" style = "width: 100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date Created</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let transaction of transactions" 
+                    [routerLink] = "[transaction.id]">
+                    <td>{{transaction.id}}</td>
+                    <td>{{transaction.dateCreated}}</td>
+                    <td>{{transaction.sourceAllocationCenter?.name}}</td>
+                    <td>{{transaction.destinationAllocationCenter?.name}}</td>
+                    <td>{{transaction.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

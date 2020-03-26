@@ -1,0 +1,40 @@
+<div class = "field">
+    <label class = "label">
+        {{label}}
+    </label>
+    <div class = "control" *ngIf = "account">
+        <input name = "{{name}}"
+            class = "input"
+            type = "text"
+            value = "{{account.name}}" 
+            readonly />
+    </div>
+    <div class = "control" *ngIf = "!account">
+        <button class = "button" (click) = "showAccountSelectDialog()">
+            Search for account
+        </button>
+    </div>
+    <div class = "modal" [ngClass] = "{ 'is-active': selectingAccount }">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Pick an account</p>
+                <button class="delete" aria-label="close" (click) = "closeSelector()"></button>
+            </header>
+            <section class="modal-card-body">
+                <ul>
+                    <li *ngFor = "let account of accounts">
+                        <a class = "button" (click) = "selectAccount(account)">
+                            {{account.name}}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <footer class="modal-card-foot">
+                <button class = "button" (click) = "closeSelector()">
+                    Cancel
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>

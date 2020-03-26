@@ -1,0 +1,52 @@
+<div class = "container">
+    <div class = "level">
+        <h1 class = "title">Allocation Center</h1>
+        <div class = "level-right">
+            <div class = "level-item">
+                <button class = "button is-danger" (click) = "delete()">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <form>
+        <text-field
+            label = "Name:"
+            name = "name"
+            [(value)] = "allocationCenter.name">
+        </text-field>
+        <text-field
+            label = "Amount:"
+            name = "amount"
+            [(value)] = "allocationCenter.amount"
+            readonly = "true" >
+        </text-field>
+        <text-field
+            label = "Goal:"
+            name = "goal"
+            [(value)] = "allocationCenter.goal">
+        </text-field>
+        <account-reference
+            label = "Account:"
+            [(account)] = "allocationCenter.account">
+        </account-reference>
+        <account-reference
+            label = "Paid from:"
+            [(account)] = "allocationCenter.paidFrom">
+        </account-reference>
+        <div class = "field is-grouped margin-top-1">
+            <p class = "control">
+                <button 
+                    class = "button is-primary" 
+                    (click) = "saveAllocationCenter()">
+                    Save
+                </button>
+            </p>
+            <p class = "control">
+                <a href = ".." class = "button">
+                    Cancel
+                </a>
+            </p>
+        </div>
+    </form>
+</div>

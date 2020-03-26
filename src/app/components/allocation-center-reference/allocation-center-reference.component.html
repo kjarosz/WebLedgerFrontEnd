@@ -1,0 +1,51 @@
+<div class = "field">
+    <label class = "label">
+        {{label}}
+    </label>
+    <div class = "field has-addons" *ngIf = "allocationCenter">
+        <div class = "control">
+            <input name = "{{name}}"
+                class = "input"
+                type = "text"
+                value = "{{allocationCenter.name}}" 
+                readonly />
+        </div>
+        <div class = "control">
+            <button 
+                class = "button is-danger"
+                (click) = "removeAllocationCenter()">
+                Remove
+            </button>
+        </div>
+    </div>
+    <div class = "control" *ngIf = "!allocationCenter">
+        <button 
+            class = "button" 
+            (click) = "showAllocationCenterSelectDialog()">
+            Search for allocation center
+        </button>
+    </div>
+    <div class = "modal" [ngClass] = "{ 'is-active': selectingAllocationCenter }">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Pick an allocation center</p>
+                <button class="delete" aria-label="close" (click) = "closeSelector()"></button>
+            </header>
+            <section class="modal-card-body">
+                <ul>
+                    <li *ngFor = "let allocationCenter of allocationCenters">
+                        <a class = "button" (click) = "selectAllocationCenter(allocationCenter)">
+                            {{allocationCenter.name}}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <footer class="modal-card-foot">
+                <button class = "button" (click) = "closeSelector()">
+                    Cancel
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>
