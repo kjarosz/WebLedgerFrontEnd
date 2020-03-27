@@ -1,6 +1,7 @@
-FROM node:10.16 AS build
-WORKDIR /home/kamil/WebLedgerFrontend
-COPY package.json ./
+FROM node:current-slim
+WORKDIR /usr/src/app
+COPY package.json .
 RUN npm install
+EXPOSE 4200
 COPY . .
-RUN npm run build
+CMD [ "npm", "start" ]
