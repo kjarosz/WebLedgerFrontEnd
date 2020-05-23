@@ -1,0 +1,37 @@
+<div class="container">
+    <h1 class = "title">Login</h1>
+    <form action = "http://localhost:8080/login"
+            [formGroup] = "loginForm"
+            (ngSubmit) = "login(this)">
+        <div class = "field">
+            <label class = "label" 
+                    for = "username">
+                Username:
+            </label>
+            <div class = "control">
+                <input id = "username"
+                        class = "input"
+                        type = "text"
+                        name = "username"
+                        placeholder = "Username" />
+            </div>
+        </div>
+        <div class = "field">
+            <label class = "label" 
+                    for = "password">
+                Password:
+            </label>
+            <div class = "control">
+                <input id = "password"
+                        class = "input"
+                        type = "password"
+                        name = "password"
+                        placeholder = "Password" />
+            </div>
+        </div>
+        <button class = "button is-primary" 
+                type = "submit" >
+            Log in
+        </button>
+    </form>
+</div>

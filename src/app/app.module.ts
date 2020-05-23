@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { AllocationCenterReferenceComponent } from './components/allocation-center-reference/allocation-center-reference.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "transactions", pathMatch: "full" },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: "allocationcenters", component: AllocationCenterListComponent },
   { path: "allocationcenters/:id", component: AllocationCenterComponent },
   { path: "transactions", component: TransactionListComponent },
-  { path: "transactions/:id", component: TransactionComponent }
+  { path: "transactions/:id", component: TransactionComponent },
+  { path: "login", component: LoginComponent }
 ]
 
 @NgModule({
@@ -40,11 +42,13 @@ const routes: Routes = [
     NavbarComponent,
     TransactionListComponent,
     TransactionComponent,
-    AllocationCenterReferenceComponent
+    AllocationCenterReferenceComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     LoggerModule.forRoot({
